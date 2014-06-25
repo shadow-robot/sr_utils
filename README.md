@@ -5,6 +5,8 @@ Contains generic useful libraries for our software.
 ### Overview
 This is a library for computing the Dynamic Time Warping distance of two chains. It can be used to compute the distance between 2 different kinematics chain (for remapping from one to the other for example).
 
+The implementation is inspired from the [lbimproved library](https://code.google.com/p/lbimproved).
+
 ### Using
 *@todo: Yi to add more comments to the library + a quick example in this readme (chain1, chain2, merge, DTW_distance)*
 
