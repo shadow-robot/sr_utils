@@ -32,6 +32,16 @@ namespace shadowrobot {
 class DTW
 {
 public:
+  /**
+   * A vector-based DTW constructor.
+   *
+   * Note that the chains can have different length.
+   * In fact, even overlapping nodes are allowed.
+   *
+   * @param chain1 the first chain in 3D
+   * @param chain2 the second chain in 3D
+   * @param desired_number_of_nodes may be reset by the contructor
+   */
   DTW(const std::vector<Eigen::Vector3d>& chain1,
       const std::vector<Eigen::Vector3d>& chain2,
       const unsigned int desired_number_of_nodes = 0);
