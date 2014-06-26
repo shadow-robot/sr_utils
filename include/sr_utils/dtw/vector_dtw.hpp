@@ -37,14 +37,18 @@ namespace shadowrobot {
 class VectorDTW
 {
 public:
-  /**
-   * n is the length of the vectors
+
+ /**
+   * A vector-based DTW constructor
    *
-   * window is the maximum warping distance.
    * Typically: window = n/10.
    * If you set window = n, the distance calculation will be slower.
+   *
+   * @param n the length of the vectors
+   * @param window the maximum warping distance
    */
-  VectorDTW(unsigned int n, unsigned int window)
+  VectorDTW(unsigned int n,
+            unsigned int window)
     : DTW_( Eigen::MatrixXd::Constant(n+1, n+1, std::numeric_limits<double>::max()) ),
       N_(n),
       w_(window)
@@ -52,7 +56,10 @@ public:
   }
 
   /**
-   * This uses Eigen::Vector3d norm().
+   * Compute the DTW distance between two chains (of equal length) in 3D.
+   * This method uses Eigen::Vector3d norm().
+   * @param s the first chain in 3D
+   * @param t the second chain in 3D
    */
   inline double DTW_distance(const std::vector<Eigen::Vector3d> &s,
                              const std::vector<Eigen::Vector3d> &t)
