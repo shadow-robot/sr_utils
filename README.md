@@ -8,7 +8,7 @@ This is a library for computing the Dynamic Time Warping distance of two chains.
 The implementation is inspired by [the lbimproved library](https://code.google.com/p/lbimproved).
 
 ### Using
-The vector-based DTW constructor takes two chains of nodes in 3D as its input arguments (the number of desired nodes is the optional third input argument). The chains may have different length. In fact, even overlapping nodes are allowed in the chains.
+The vector-based DTW constructor takes two chains of nodes in 3D as its input arguments (the number of desired nodes is the optional third input argument). The chains may have different length. In fact, even overlapping nodes are allowed in the chains, as long as they are located next to each other.
 
 #include <sr_utils/dtw/dtw.hpp>
 
