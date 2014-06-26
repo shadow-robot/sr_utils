@@ -13,9 +13,9 @@ The vector-based DTW constructor takes two chains of nodes in 3D as its input ar
 #include <sr_utils/dtw/dtw.hpp>
 
 std::vector<Eigen::Vector3d> chain_a;
-chain1.push_back( Eigen::Vector3d(-1, 1, 1) );
-chain1.push_back( Eigen::Vector3d(0, 0, 0) );
-chain1.push_back( Eigen::Vector3d(1, 1, 1) );
+chain_a.push_back( Eigen::Vector3d(-1, 1, 1) );
+chain_a.push_back( Eigen::Vector3d(0, 0, 0) );
+chain_a.push_back( Eigen::Vector3d(1, 1, 1) );
 
 std::vector<Eigen::Vector3d> chain_b1;
 chain_b1.push_back( Eigen::Vector3d(-1, 0, 1) );
