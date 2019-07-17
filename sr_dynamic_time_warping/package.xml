@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>sr_utils</name>
+  <name>sr_dynamic_time_warping</name>
   <version>0.0.0</version>
-  <description>The sr_utils package</description>
+  <description>The sr_dynamic_time_warping package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

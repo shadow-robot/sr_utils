@@ -9,7 +9,7 @@
 
 using namespace std;
 
-# include "sr_utils/r8lib.hpp"
+# include "sr_interpolation/r8lib.hpp"
 
 //****************************************************************************80
 

@@ -7,8 +7,8 @@
 
 using namespace std;
 
-# include "sr_utils/pwl_interp_2d_scattered.hpp"
-# include "sr_utils/r8lib.hpp"
+# include "sr_interpolation/pwl_interp_2d_scattered.hpp"
+# include "sr_interpolation/r8lib.hpp"
 
 //****************************************************************************80
 

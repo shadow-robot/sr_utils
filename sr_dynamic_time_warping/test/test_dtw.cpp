@@ -3,8 +3,8 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-#include "sr_utils/dtw/dtw.hpp"
-#include "sr_utils/dtw/vector_dtw.hpp"
+#include "sr_dynamic_time_warping/dtw.hpp"
+#include "sr_dynamic_time_warping/vector_dtw.hpp"
 
 using shadowrobot::DTW;
 using shadowrobot::VectorDTW;
