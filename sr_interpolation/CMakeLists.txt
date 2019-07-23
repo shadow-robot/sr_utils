@@ -1,16 +1,22 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(sr_interpolation)
 
+## Compile as C++11, supported in ROS Kinetic and newer
+add_compile_options(-std=c++11)
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(cmake_modules  REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
   rostest
+  roscpp
 )
 
 ## System dependencies are found with CMake's conventions
 find_package(Eigen REQUIRED)
+
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -78,10 +84,14 @@ find_package(Eigen REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+  CATKIN_DEPENDS roscpp
   INCLUDE_DIRS include
   LIBRARIES
 #  DEPENDS system_lib
 )
+
+add_library(sr_interpolation src/pwl_interp_2d_scattered.cpp src/r8lib.cpp)
+target_link_libraries(sr_interpolation ${catkin_LIBRARIES})
 
 ###########
 ## Build ##

@@ -1,5 +1,6 @@
 #include <Eigen/Dense>
 #include <cmath>
+#include <vector>
 
 int diaedg ( double x0, double y0, double x1, double y1, double x2, double y2,
   double x3, double y3 );
