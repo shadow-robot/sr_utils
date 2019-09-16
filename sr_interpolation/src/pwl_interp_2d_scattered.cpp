@@ -2169,6 +2169,7 @@ double get_smallest_angle ( int triangle_index, double node_xy[], int &triangle_
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2207,6 +2208,7 @@ void re_index_triangles ( int deleted_triangle_index, int &triangle_num,
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2263,6 +2265,7 @@ void remove_exterior_triangle ( int triangle_index, int &triangle_num,
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2351,6 +2354,7 @@ void filter_edge_triangles_by_min_angle ( int node_num, double node_xy[], int &t
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2409,6 +2413,7 @@ std::pair<Vector3, Vector3> best_plane_from_points(const std::vector<Vector3> & 
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2442,6 +2447,7 @@ double evaluate_plane_point(double x, double y, std::pair<Eigen::Vector3d, Eigen
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
@@ -2462,6 +2468,7 @@ void add_surrounding_points(int nb_calibration_points, double node_xy[], double 
 //****************************************************************************
 //  Licensing:
 //
+//    Copyright 2019 Shadow Robot Company Ltd.
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
