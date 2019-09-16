@@ -2166,6 +2166,19 @@ void vbedg ( double x, double y, int node_num, double node_xy[],
 
 double get_smallest_angle ( int triangle_index, double node_xy[], int &triangle_num,
   int triangle_node[])
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   // https://socratic.org/questions/how-do-you-find-the-three-angles-of-the-triangle-with-the-given-vertices-a-1-0-b
   // Read the coordinates of the vertices
@@ -2191,6 +2204,19 @@ double get_smallest_angle ( int triangle_index, double node_xy[], int &triangle_
 
 void re_index_triangles ( int deleted_triangle_index, int &triangle_num,
   int triangle_node[], int triangle_neighbor[] )
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   for ( int i = deleted_triangle_index + 1; i < triangle_num; i++ )
   {
@@ -2234,6 +2260,19 @@ void re_index_triangles ( int deleted_triangle_index, int &triangle_num,
 
 void remove_exterior_triangle ( int triangle_index, int &triangle_num,
   int triangle_node[], int triangle_neighbor[] )
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   int i;
   int s;
@@ -2309,6 +2348,19 @@ void remove_exterior_triangle ( int triangle_index, int &triangle_num,
 
 void filter_edge_triangles_by_min_angle ( int node_num, double node_xy[], int &triangle_num,
   int triangle_node[], int triangle_neighbor[], double min_angle )
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   int i;
   int j;
@@ -2354,6 +2406,19 @@ void filter_edge_triangles_by_min_angle ( int node_num, double node_xy[], int &t
 // https://gist.github.com/ialhashim/0a2554076a6cf32831ca
 template<class Vector3>
 std::pair<Vector3, Vector3> best_plane_from_points(const std::vector<Vector3> & c)
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
 	// copy coordinates to  matrix in Eigen format
 	size_t num_atoms = c.size();
@@ -2374,6 +2439,19 @@ std::pair<Vector3, Vector3> best_plane_from_points(const std::vector<Vector3> & 
 }
 
 double evaluate_plane_point(double x, double y, std::pair<Eigen::Vector3d, Eigen::Vector3d> plane)
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   // http://www.easy-math.net/transforming-between-plane-forms/
   double z = (plane.second.dot(plane.first) - plane.second(0) * x - plane.second(1) * y) / plane.second(2);
@@ -2381,6 +2459,19 @@ double evaluate_plane_point(double x, double y, std::pair<Eigen::Vector3d, Eigen
 }
 
 void add_surrounding_points(int nb_calibration_points, double node_xy[], double z_data[], int nb_surrounding_points)
+//****************************************************************************
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2019
+//
+//  Author:
+//
+//    Toni Oliver
+//
 {
   std::vector<Eigen::Vector3d> calibration_points;
   for (int i = 0; i < nb_calibration_points; i++)
