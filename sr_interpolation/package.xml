@@ -14,12 +14,6 @@
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>LGPLv3</license>
 
-  <!-- Author tags are optional, mutiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintianers, but could be -->
-  <!-- Example: -->
-  <author email="yi@shadowrobot.com">Yi Li</author>
-  <author email="ugo@shadowrobot.com">Ugo Cupcic</author>
-
   <test_depend>gtest</test_depend>
   <buildtool_depend>catkin</buildtool_depend>
 
