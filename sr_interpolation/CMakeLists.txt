@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(sr_utils)
+project(sr_interpolation)
+
+## Compile as C++11, supported in ROS Kinetic and newer
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -7,10 +10,13 @@ project(sr_utils)
 find_package(cmake_modules  REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
   rostest
+  roscpp
 )
 
 ## System dependencies are found with CMake's conventions
 find_package(Eigen REQUIRED)
+
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -78,10 +84,14 @@ find_package(Eigen REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+  CATKIN_DEPENDS roscpp
   INCLUDE_DIRS include
-  LIBRARIES dtw
+  LIBRARIES
 #  DEPENDS system_lib
 )
+
+add_library(sr_interpolation src/pwl_interp_2d_scattered.cpp src/r8lib.cpp)
+target_link_libraries(sr_interpolation ${catkin_LIBRARIES})
 
 ###########
 ## Build ##
@@ -93,11 +103,6 @@ include_directories(include)
 include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS})
 include_directories(
   ${catkin_INCLUDE_DIRS}
-)
-
-## Declare a cpp library
-add_library(dtw
-   src/dtw.cpp
 )
 
 ## Declare a cpp executable
@@ -127,7 +132,7 @@ add_library(dtw
 # )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS dtw
+install(TARGETS
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -150,12 +155,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
 #############
 ## Testing ##
 #############
-
-## Add gtest based cpp test target and link libraries
-catkin_add_gtest(dtw-test test/test_dtw.cpp)
-if(TARGET dtw-test)
-   target_link_libraries(dtw-test dtw)
-endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

@@ -25,7 +25,7 @@
 #pragma once
 
 #include <ros/ros.h>
-#include "sr_utils/dtw/vector_dtw.hpp"
+#include "sr_dynamic_time_warping/vector_dtw.hpp"
 
 namespace shadowrobot {
 

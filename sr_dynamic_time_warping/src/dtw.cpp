@@ -22,7 +22,7 @@
  *
  */
 
-#include "sr_utils/dtw/dtw.hpp"
+#include "sr_dynamic_time_warping/dtw.hpp"
 
 namespace shadowrobot
 {
