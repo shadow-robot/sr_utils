@@ -86,7 +86,7 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 catkin_package(
   CATKIN_DEPENDS roscpp
   INCLUDE_DIRS include
-  LIBRARIES
+  LIBRARIES sr_interpolation
 #  DEPENDS system_lib
 )
 
@@ -132,10 +132,10 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-install(TARGETS
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+install(TARGETS sr_interpolation
+   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark cpp header files for installation
