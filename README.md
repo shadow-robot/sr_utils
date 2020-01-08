@@ -40,3 +40,7 @@ double dis = dtw.dtw_distance();
 
 ### Using this library in your package
 Simply add the dependency to sr_utils to your `package.xml` and `CMakeLists.txt` and include the `<sr_utils/dtw/dtw.hpp>` in your file and you're good to go.
+
+## sr_system_info
+
+This is a library for collecting system and package information. See it's [README.md](sr_system_info/README.md).
