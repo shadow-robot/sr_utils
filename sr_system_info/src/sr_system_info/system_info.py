@@ -56,6 +56,12 @@ class SystemInfo(object):
                 self._values["bin_packages"][package_name]["version"] = self._rospack.get_manifest(package_name).version
 
     def survey_source_repos(self):
+        git_diff_ignore_lists = {"repos": {
+                                    "sr_teleop_internal": "':!sr_teleop_benchmarking/benchmarks'",
+                                    "sr_interface": "':!sr_multi_moveit/sr_multi_moveit_config/launch/moveit.rviz'"},
+                                 "packages": {
+                                    "sr_teleop_benchmarking": "':!benchmarks'",
+                                    "sr_multi_moveit_config": "':!launch/moveit.rviz'"}}
         for repo_name in self._values["src_repos"]:
             repo_path = self._values["src_repos"][repo_name]["path"]
             self._values["src_repos"][repo_name]["sha"] = subprocess.check_output(["git", "-C", repo_path, "rev-parse",
@@ -66,15 +72,20 @@ class SystemInfo(object):
             self._values["src_repos"][repo_name]["url"] = subprocess.check_output(["git", "-C", repo_path, "remote",
                                                                                    "get-url",
                                                                                    "origin"]).replace("\n", "")
+            git_diff_ignore = git_diff_ignore_lists["repos"].get(repo_name, "")
             self._values["src_repos"][repo_name]["diff"] = subprocess.check_output(
-                "git --no-pager -C {} diff".format(repo_path), shell=True).replace("\n", "")
+                "git --no-pager -C {} diff -- {} {}".format(repo_path, repo_path, git_diff_ignore),
+                shell=True).replace("\n", "")
         for package_name in self._values["src_packages"]:
             src_repo_name = self._values["src_packages"][package_name]["repo_name"]
             self._values["src_packages"][package_name]["sha"] = self._values["src_repos"][src_repo_name]["sha"]
             self._values["src_packages"][package_name]["ref"] = self._values["src_repos"][src_repo_name]["ref"]
             self._values["src_packages"][package_name]["url"] = self._values["src_repos"][src_repo_name]["url"]
+            git_diff_ignore = git_diff_ignore_lists["packages"].get(package_name, "")
             self._values["src_packages"][package_name]["diff"] = subprocess.check_output(
-                "git --no-pager -C {} diff".format(self._values["src_packages"][package_name]["path"]),
+                "git --no-pager -C {} diff -- {} {}".format(self._values["src_packages"][package_name]["path"],
+                                                            self._values["src_packages"][package_name]["path"],
+                                                            git_diff_ignore),
                 shell=True).replace("\n", "")
 
     def survey_system(self):
