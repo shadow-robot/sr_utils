@@ -4,6 +4,8 @@
 # Unauthorized copying of the content in this file, via any medium is strictly prohibited.
 
 import argparse
+import dynamic_reconfigure
+import dynamic_reconfigure.client
 import psutil
 import rospy
 import rospkg
@@ -102,6 +104,38 @@ class SystemInfo(object):
 
     def stdout(self, cmd):
         return subprocess.check_output(cmd).rstrip("\r\n")
+
+    def survey_dynamic_configuration(self):
+        self._values["dynamic_reconfigure"] = {}
+        # Find dynamically reconfigurable nodes
+        servers = dynamic_reconfigure.find_reconfigure_services()
+        # These keys in the dynamic reconfigure dictionaries do not specify parameters
+        non_param_keys = ["groups", "id", "name", "parameters", "parent", "state", "type"]
+        processed_keys = []
+        # For each dynamically reconfigurable node:
+        for server in servers:
+            client = dynamic_reconfigure.client.Client(server)
+            # Get the node parameters and current config
+            config = client.get_configuration()
+            self._values["dynamic_reconfigure"][server] = {}
+            # Loop through the parameters groups, collecting config
+            if "groups" in config.keys() and "groups" in config["groups"].keys():
+                # For each parameter group in this node
+                for group in config["groups"]["groups"].keys():
+                    self._values["dynamic_reconfigure"][server][group] = {}
+                    # For each parameter in this group
+                    for key in config["groups"]["groups"][group].keys():
+                        # Ignore non-parameter keys
+                        if key in non_param_keys:
+                            continue
+                        else:
+                            self._values["dynamic_reconfigure"][server][group][key] = \
+                                config["groups"]["groups"][group][key]
+                            processed_keys.append(key)
+            # Catch any non-grouped parameters in this node
+            for key in config.keys():
+                if key != "groups" and key not in processed_keys:
+                    self._values["dynamic_reconfigure"][server][key] = config[key]
 
 
 if __name__ == "__main__":
