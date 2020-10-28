@@ -61,10 +61,10 @@ src_packages:
     ref: master, repo_name: bio_ik, repo_path: /home/user/projects/shadow_robot/base_deps/src/bio_ik,
     sha: 8424004c44f4e2aca939aba7798236b840b1471c, url: 'git@github.com:shadow-robot/bio_ik.git'}
   ...
-  sr_description_common: {diff: 'diff --git a/sr_description_common/worlds/demo_space_large_folding_table.world
-      b/sr_description_common/worlds/demo_space_large_folding_table.worldindex 85f9e44..062d2df
-      100644--- a/sr_description_common/worlds/demo_space_large_folding_table.world+++
-      b/sr_description_common/worlds/demo_space_large_folding_table.world@@ -89,8
+  sr_description_common: {diff: 'diff --git a/sr_description_common/worlds/demo_space_large_bimanual.world
+      b/sr_description_common/worlds/demo_space_large_bimanual.worldindex 85f9e44..062d2df
+      100644--- a/sr_description_common/worlds/demo_space_large_bimanual.world+++
+      b/sr_description_common/worlds/demo_space_large_bimanual.world@@ -89,8
       +89,8 @@           <contact_surface_layer>0.00000</contact_surface_layer>         </constraints>       </ode>-      <real_time_update_rate>0.000000</real_time_update_rate>-      <max_step_size>0.001000</max_step_size>+      <real_time_update_rate>2000.000000</real_time_update_rate>+      <max_step_size>0.000500</max_step_size>     </physics>     <scene>       <ambient>0.4
       0.4 0.4 1</ambient>', path: /home/user/projects/shadow_robot/base/src/common_resources/sr_description_common,
     ref: kinetic-devel, repo_name: common_resources, repo_path: /home/user/projects/shadow_robot/base/src/common_resources,
