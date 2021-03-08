@@ -9,9 +9,9 @@
   <url type="repository">https://github.com/shadow-robot/sr_utils</url>
   <url type="bugtracker">https://github.com/shadow-robot/sr_utils/issues</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>python-rospkg</build_depend>
+  <build_depend>python3-rospkg</build_depend>
   <build_depend>rospy</build_depend>
-  <build_export_depend>python-rospkg</build_export_depend>
+  <build_export_depend>python3-rospkg</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <exec_depend>python-rospkg</exec_depend>
   <exec_depend>rospy</exec_depend>
