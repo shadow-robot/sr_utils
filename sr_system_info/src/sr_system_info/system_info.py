@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import absolute_import
 import argparse
 import dynamic_reconfigure
 import dynamic_reconfigure.client
@@ -86,7 +87,7 @@ class SystemInfo(object):
             self._values["src_repos"][repo_name]["url"] = subprocess.check_output(["git", "-C", repo_path, "remote",
                                                                                    "get-url",
                                                                                    "origin"],
-                                                                                   text=True).replace("\n", "")
+                                                                                  text=True).replace("\n", "")
             git_diff_ignore = git_diff_ignore_lists["repos"].get(repo_name, "")
             self._values["src_repos"][repo_name]["diff"] = subprocess.check_output(
                 "git --no-pager -C {} diff -- {} {}".format(repo_path, repo_path, git_diff_ignore),

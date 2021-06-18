@@ -88,7 +88,7 @@ TEST(TestDTW, testDTW)
     = std::max<unsigned int>(chain1.size(), chain2.size());
   DTW dtw(chain1, chain2);
 
-  ASSERT_EQ( dtw.get_desired_number_of_nodes(), desired_number_of_nodes );
+  ASSERT_EQ(dtw.get_desired_number_of_nodes(), desired_number_of_nodes);
 }
 
 //-------------------------------------------------------------------------------
