@@ -67,17 +67,17 @@ class SystemInfo(object):
         for repo_name in self._values["src_repos"]:
             repo_path = self._values["src_repos"][repo_name]["path"]
             self._values["src_repos"][repo_name]["sha"] = subprocess.check_output(["git", "-C", repo_path, "rev-parse",
-                                                                                   "HEAD"]).replace("\n", "")
+                                                                                   "HEAD"], text=True).replace("\n", "")
             self._values["src_repos"][repo_name]["ref"] = subprocess.check_output(["git", "-C", repo_path, "rev-parse",
                                                                                    "--abbrev-ref",
-                                                                                   "HEAD"]).replace("\n", "")
+                                                                                   "HEAD"], text=True).replace("\n", "")
             self._values["src_repos"][repo_name]["url"] = subprocess.check_output(["git", "-C", repo_path, "remote",
                                                                                    "get-url",
-                                                                                   "origin"]).replace("\n", "")
+                                                                                   "origin"], text=True).replace("\n", "")
             git_diff_ignore = git_diff_ignore_lists["repos"].get(repo_name, "")
             self._values["src_repos"][repo_name]["diff"] = subprocess.check_output(
                 "git --no-pager -C {} diff -- {} {}".format(repo_path, repo_path, git_diff_ignore),
-                shell=True).replace("\n", "")
+                shell=True, text=True).replace("\n", "")
         for package_name in self._values["src_packages"]:
             src_repo_name = self._values["src_packages"][package_name]["repo_name"]
             self._values["src_packages"][package_name]["sha"] = self._values["src_repos"][src_repo_name]["sha"]
@@ -88,7 +88,7 @@ class SystemInfo(object):
                 "git --no-pager -C {} diff -- {} {}".format(self._values["src_packages"][package_name]["path"],
                                                             self._values["src_packages"][package_name]["path"],
                                                             git_diff_ignore),
-                shell=True).replace("\n", "")
+                shell=True, text=True).replace("\n", "")
 
     def survey_system(self):
         self._values["system"] = {"hardware":
@@ -103,7 +103,7 @@ class SystemInfo(object):
         return yaml.dump(self._values)
 
     def stdout(self, cmd):
-        return subprocess.check_output(cmd).rstrip("\r\n")
+        return subprocess.check_output(cmd, text=True).rstrip("\r\n")
 
     def survey_dynamic_configuration(self):
         self._values["dynamic_reconfigure"] = {}
@@ -145,4 +145,4 @@ if __name__ == "__main__":
     system_info = SystemInfo()
     system_info.collect()
     if args.verbose:
-        print system_info.yaml()
+        print(system_info.yaml())
