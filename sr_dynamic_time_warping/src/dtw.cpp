@@ -15,6 +15,8 @@
 */
 
 #include "sr_dynamic_time_warping/dtw.hpp"
+#include <vector>
+#include <algorithm>
 
 namespace shadowrobot
 {
@@ -198,7 +200,7 @@ DTW::merge(const std::vector<Eigen::Vector3d>& chain_1,
 
 //-------------------------------------------------------------------------------
 
-} // namespace shadowrobot
+}  // namespace shadowrobot
 
 /* For the emacs weenies in the crowd.
    Local Variables:

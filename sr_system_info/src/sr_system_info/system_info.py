@@ -22,6 +22,7 @@ import rospy
 import rospkg
 import subprocess
 import yaml
+from builtins import round
 
 
 class SystemInfo(object):
@@ -84,7 +85,8 @@ class SystemInfo(object):
                                                                                    "HEAD"], text=True).replace("\n", "")
             self._values["src_repos"][repo_name]["url"] = subprocess.check_output(["git", "-C", repo_path, "remote",
                                                                                    "get-url",
-                                                                                   "origin"], text=True).replace("\n", "")
+                                                                                   "origin"],
+                                                                                   text=True).replace("\n", "")
             git_diff_ignore = git_diff_ignore_lists["repos"].get(repo_name, "")
             self._values["src_repos"][repo_name]["diff"] = subprocess.check_output(
                 "git --no-pager -C {} diff -- {} {}".format(repo_path, repo_path, git_diff_ignore),
