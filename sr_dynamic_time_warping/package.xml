@@ -19,6 +19,7 @@
   <!-- Example: -->
   <author email="yi@shadowrobot.com">Yi Li</author>
   <author email="ugo@shadowrobot.com">Ugo Cupcic</author>
+  <author email="toni@shadowrobot.com">Toni Oliver</author>
 
   <test_depend>gtest</test_depend>
   <buildtool_depend>catkin</buildtool_depend>
