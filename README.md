@@ -1,3 +1,11 @@
+# CI Statuses
+
+Check | Status
+---|---
+Build|[<img src="https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiVzVHYmNHUytlVDV6NldybC9pK09Rcng4T0REVUUxZWNhc3BPcW9ud0Uxa3duU1RyaEQvYks2a3ZZTS9ubzNDdk42R2Q2VllBNldWcTFpREk3UkRuT1NrPSIsIml2UGFyYW1ldGVyU3BlYyI6ImgzcFlJM1BJRU9RUUhHRi8iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=noetic-devel"/>](https://eu-west-2.console.aws.amazon.com/codesuite/codebuild/projects/auto_sr_utils_noetic-devel_install_check/)
+Style|[<img src="https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiNUR1TzU1TGNJQkUxSW93UnJHWDMxK2hnbWdCUWI0VENlenJQNWxYQWtSOFkydVRONW9oVVlVSlZLU3VxMVN0OFQ0cHhjSDJYYmt2eTZ5YWtvVlVyY05VPSIsIml2UGFyYW1ldGVyU3BlYyI6IlNBM2h4S3JENldyQmVUYzQiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=noetic-devel"/>](https://eu-west-2.console.aws.amazon.com/codesuite/codebuild/projects/auto_sr_utils_noetic-devel_style_check/)
+Code Coverage|[<img src="https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiZHBncm5XV3RtYVBKaG5QOEhYK3ZLa0l1T2x0WHBsZlFBS1Jtb2xQZ2tTc2pCejhHL3ZtRmVVOEJwOVR5QjUwczFCVHVwRFdrY05PTWlJeFVPVmVnUXRnPSIsIml2UGFyYW1ldGVyU3BlYyI6Im9lTm1xbktCalF5UnorSG4iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=noetic-devel"/>](https://eu-west-2.console.aws.amazon.com/codesuite/codebuild/projects/auto_sr_utils_noeticv-devel_code_coverage/)
+
 # sr-utils
 Contains generic useful libraries for our software.
 
