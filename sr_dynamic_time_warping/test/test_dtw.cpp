@@ -1,3 +1,21 @@
+/*
+* Copyright 2013-2021 Shadow Robot Company Ltd.
+*
+* This program is free software: you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the Free
+* Software Foundation version 2 of the License.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include <algorithm>
+#include <vector>
 #include <ros/ros.h>
 #include <ros/package.h>
 #include <gtest/gtest.h>
@@ -14,14 +32,14 @@ using shadowrobot::VectorDTW;
 TEST(TestDTW, testChainMerge)
 {
   std::vector<Eigen::Vector3d> chain_1;
-  chain_1.push_back( Eigen::Vector3d(0.0, -1.0, 0.0) );
-  chain_1.push_back( Eigen::Vector3d(1.0, -1.0, 0.0) );
-  chain_1.push_back( Eigen::Vector3d(2.0, -1.0, 0.0) );
+  chain_1.push_back(Eigen::Vector3d(0.0, -1.0, 0.0) );
+  chain_1.push_back(Eigen::Vector3d(1.0, -1.0, 0.0) );
+  chain_1.push_back(Eigen::Vector3d(2.0, -1.0, 0.0) );
 
   std::vector<Eigen::Vector3d> chain_2;
-  chain_2.push_back( Eigen::Vector3d(0.0,  1.0, 0.0) );
-  chain_2.push_back( Eigen::Vector3d(1.0,  1.0, 0.0) );
-  chain_2.push_back( Eigen::Vector3d(2.0,  1.0, 0.0) );
+  chain_2.push_back(Eigen::Vector3d(0.0,  1.0, 0.0) );
+  chain_2.push_back(Eigen::Vector3d(1.0,  1.0, 0.0) );
+  chain_2.push_back(Eigen::Vector3d(2.0,  1.0, 0.0) );
 
   bool connect_at_tail_1 = true;
   bool connect_at_tail_2 = true;
@@ -38,11 +56,11 @@ TEST(TestDTW, testChainMerge)
 TEST(TestDTW, testInsertAdditionalNodes)
 {
   std::vector<Eigen::Vector3d> chain_in;
-  chain_in.push_back( Eigen::Vector3d(0.0, 0.0, 0.0) );
-  chain_in.push_back( Eigen::Vector3d(1.0, 0.0, 0.0) );
-  chain_in.push_back( Eigen::Vector3d(1.0, 0.0, 0.0) );
-  chain_in.push_back( Eigen::Vector3d(1.0, 0.0, 0.0) );
-  chain_in.push_back( Eigen::Vector3d(5.0, 0.0, 0.0) );
+  chain_in.push_back(Eigen::Vector3d(0.0, 0.0, 0.0) );
+  chain_in.push_back(Eigen::Vector3d(1.0, 0.0, 0.0) );
+  chain_in.push_back(Eigen::Vector3d(1.0, 0.0, 0.0) );
+  chain_in.push_back(Eigen::Vector3d(1.0, 0.0, 0.0) );
+  chain_in.push_back(Eigen::Vector3d(5.0, 0.0, 0.0) );
 
   unsigned int desired_number_of_nodes = 6;
   std::vector<Eigen::Vector3d> chain_out =
@@ -56,21 +74,21 @@ TEST(TestDTW, testInsertAdditionalNodes)
 TEST(TestDTW, testDTW)
 {
   std::vector<Eigen::Vector3d> chain1;
-  chain1.push_back( Eigen::Vector3d(0.0, 0.0, 0.0) );
-  chain1.push_back( Eigen::Vector3d(1.0, 0.0, 0.0) );
-  chain1.push_back( Eigen::Vector3d(2.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(0.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(1.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(2.0, 0.0, 0.0) );
 
   std::vector<Eigen::Vector3d> chain2;
-  chain2.push_back( Eigen::Vector3d(0.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(1.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(2.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(3.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(0.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(1.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(2.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(3.0, 1.0, 0.0) );
 
   unsigned int desired_number_of_nodes
     = std::max<unsigned int>(chain1.size(), chain2.size());
   DTW dtw(chain1, chain2);
 
-  ASSERT_EQ( dtw.get_desired_number_of_nodes(), desired_number_of_nodes );
+  ASSERT_EQ(dtw.get_desired_number_of_nodes(), desired_number_of_nodes);
 }
 
 //-------------------------------------------------------------------------------
@@ -78,18 +96,18 @@ TEST(TestDTW, testDTW)
 TEST(TestDTW, testDTWdistance)
 {
   std::vector<Eigen::Vector3d> chain1;
-  chain1.push_back( Eigen::Vector3d(0.0, 0.0, 0.0) );
-  chain1.push_back( Eigen::Vector3d(1.0, 0.0, 0.0) );
-  chain1.push_back( Eigen::Vector3d(2.0, 0.0, 0.0) );
-  chain1.push_back( Eigen::Vector3d(2.0, 0.0, 2.0) );
-  chain1.push_back( Eigen::Vector3d(4.0, 1.0, 2.0) );
+  chain1.push_back(Eigen::Vector3d(0.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(1.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(2.0, 0.0, 0.0) );
+  chain1.push_back(Eigen::Vector3d(2.0, 0.0, 2.0) );
+  chain1.push_back(Eigen::Vector3d(4.0, 1.0, 2.0) );
 
   std::vector<Eigen::Vector3d> chain2;
-  chain2.push_back( Eigen::Vector3d(0.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(1.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(2.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(3.0, 1.0, 0.0) );
-  chain2.push_back( Eigen::Vector3d(3.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(0.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(1.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(2.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(3.0, 1.0, 0.0) );
+  chain2.push_back(Eigen::Vector3d(3.0, 1.0, 0.0) );
 
   ASSERT_EQ(chain1.size(), chain2.size());
 
