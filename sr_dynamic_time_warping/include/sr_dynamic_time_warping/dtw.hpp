@@ -18,8 +18,10 @@
 
 #include <ros/ros.h>
 #include "sr_dynamic_time_warping/vector_dtw.hpp"
+#include <vector>
 
-namespace shadowrobot {
+namespace shadowrobot
+{
 
 class DTW
 {
@@ -116,6 +118,7 @@ private:
 };
 
 } // namespace shadowrobot
+
 
 /* For the emacs weenies in the crowd.
    Local Variables:

@@ -21,15 +21,16 @@
 #include <limits>
 #include <vector>
 #include <Eigen/Dense>
+#include <algorithm>
 
 //-------------------------------------------------------------------------------
 
-namespace shadowrobot {
+namespace shadowrobot
+{
 
 class VectorDTW
 {
 public:
-
  /**
    * A vector-based DTW constructor
    *
@@ -41,7 +42,7 @@ public:
    */
   VectorDTW(unsigned int n,
             unsigned int window)
-    : DTW_( Eigen::MatrixXd::Constant(n+1, n+1, std::numeric_limits<double>::max()) ),
+    : DTW_(Eigen::MatrixXd::Constant(n+1, n+1, std::numeric_limits<double>::max())),
       N_(n),
       w_(window)
   {
@@ -83,5 +84,6 @@ private:
 };
 
 } // end of namespace shadowrobot
+
 
 //-------------------------------------------------------------------------------
