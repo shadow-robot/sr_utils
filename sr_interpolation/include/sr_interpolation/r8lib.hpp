@@ -181,9 +181,9 @@ double **r8cmat_zeros_new(int m, int n);
 double r8int_to_r8int(double rmin, double rmax, double r, double r2min,
   double r2max);
 int r8int_to_i4int(double rmin, double rmax, double r, int imin, int imax);
-void r8mat_add(int m, int n, double alpha, double a[], double beta, 
+void r8mat_add(int m, int n, double alpha, double a[], double beta,
   double b[], double c[]);
-double *r8mat_add_new(int m, int n, double alpha, double a[], double beta, 
+double *r8mat_add_new(int m, int n, double alpha, double a[], double beta,
   double b[]);
 double r8mat_amax(int m, int n, double a[]);
 double *r8mat_border_add(int m, int n, double table[]);
@@ -314,7 +314,7 @@ double *r8mat_sum_columns(int m, int n, double a[]);
 double *r8mat_sum_rows(int m, int n, double a[]);
 double *r8mat_symm_eigen(int n, double x[], double q[]);
 void r8mat_symm_jacobi(int n, double a[]);
-double **r8mat_to_r8cmat_new( int m, int n, double a[]);
+double **r8mat_to_r8cmat_new(int m, int n, double a[]);
 int r8mat_to_r8plu(int n, double a[], int pivot[], double lu[]);
 double **r8mat_to_r8rmat(int m, int n, double a[]);
 double r8mat_trace(int n, double a[]);
@@ -331,7 +331,7 @@ double *r8mat_uniform_01_new(int m, int n, int &seed);
 double *r8mat_uniform_ab_new(int m, int n, double a, double b, int &seed);
 void r8mat_uniform_ab(int m, int n, double a[], double b[], int &seed, double r[]);
 double *r8mat_uniform_ab_new(int m, int n, double a[], double b[], int &seed);
-void r8mat_uniform_abvec(int m, int n, double a[], double b[], int &seed, 
+void r8mat_uniform_abvec(int m, int n, double a[], double b[], int &seed,
   double r[]);
 double *r8mat_uniform_abvec_new(int m, int n, double a[], double b[], int &seed);
 double *r8row_uniform_new(int m, int n, double a[], double b[], int &seed);
@@ -438,7 +438,7 @@ void r8vec_even2(int maxval, int nfill[], int nold, double xold[],
 double r8vec_even2_select(int n, double xlo, double xhi, int ival);
 void r8vec_even3(int nold, int nval, double xold[], double xval[]);
 double *r8vec_expand_linear(int n, double x[], int fat);
-double *r8vec_expand_linear2(int n, double x[], int before, int fat, 
+double *r8vec_expand_linear2(int n, double x[], int before, int fat,
   int after);
 void r8vec_fill(int n, double value, double x[]);
 double *r8vec_fill_new(int n, double value);
@@ -448,7 +448,7 @@ double *r8vec_fraction(int n, double x[]);
 bool r8vec_gt(int n, double a1[], double a2[]);
 void r8vec_heap_a(int n, double a[]);
 void r8vec_heap_d(int n, double a[]);
-int *r8vec_histogram(int n, double a[], double a_lo, double a_hi, 
+int *r8vec_histogram(int n, double a[], double a_lo, double a_hi,
   int histo_num);
 double *r8vec_house_column(int n, double a[], int k);
 double r8vec_i4vec_dot_product(int n, double r8vec[], int i4vec[]);
@@ -508,7 +508,7 @@ double r8vec_mean(int n, double x[]);
 double r8vec_mean_geometric(int n, double x[]);
 double *r8vec_mean_running(int n, double v[]);
 double r8vec_median(int n, double a[]);
-void r8vec_mesh_2d(int nx, int ny, double xvec[], double yvec[], 
+void r8vec_mesh_2d(int nx, int ny, double xvec[], double yvec[],
   double xmat[], double ymat[]);
 double *r8vec_midspace_new(int n, double a_lo, double a_hi);
 double r8vec_min(int n, double r8vec[]);
@@ -613,7 +613,7 @@ int *r8vec_unique_index(int n, double a[], double tol);
 double r8vec_variance(int n, double x[]);
 double r8vec_variance_circular(int n, double x[]);
 double r8vec_variance_sample(int n, double x[]);
-void r8vec_variance_update(int nm1, double mean_nm1, double variance_nm1, 
+void r8vec_variance_update(int nm1, double mean_nm1, double variance_nm1,
   double xn, int &n, double &mean_n, double &variance_n);
 double *r8vec_vector_triple_product(double v1[3], double v2[3], double v3[3]);
 void r8vec_write(int n, double r[], string output_file);

@@ -117,7 +117,7 @@ private:
   unsigned desired_number_of_nodes_;
 };
 
-} // namespace shadowrobot
+}  // namespace shadowrobot
 
 
 /* For the emacs weenies in the crowd.

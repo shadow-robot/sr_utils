@@ -44,7 +44,7 @@ void triangulation_order3_print(int node_num, int triangle_num,
   double node_xy[], int triangle_node[], int triangle_neighbor[]);
 void triangulation_search_delaunay(int node_num, double node_xy[],
   int triangle_order, int triangle_num, int triangle_node[],
-  int triangle_neighbor[], double p[2], int &triangle_index, 
+  int triangle_neighbor[], double p[2], int &triangle_index,
   double &alpha, double &beta, double &gamma, int &edge,
   int &step_num);
 void vbedg(double x, double y, int node_num, double node_xy[],

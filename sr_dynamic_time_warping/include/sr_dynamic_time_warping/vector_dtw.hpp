@@ -83,7 +83,7 @@ private:
   int w_;
 };
 
-} // end of namespace shadowrobot
+}  // end of namespace shadowrobot
 
 
 //-------------------------------------------------------------------------------
