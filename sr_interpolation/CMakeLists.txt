@@ -5,7 +5,6 @@ project(sr_interpolation)
 add_compile_options(-std=c++17)
 
 find_package(catkin REQUIRED COMPONENTS
-  rostest
   roscpp
 )
 
