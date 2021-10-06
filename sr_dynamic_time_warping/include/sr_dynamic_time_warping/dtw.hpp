@@ -16,7 +16,6 @@
 
 #pragma once
 
-#include <ros/ros.h>
 #include "sr_dynamic_time_warping/vector_dtw.hpp"
 #include <vector>
 

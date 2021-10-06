@@ -16,8 +16,6 @@
 
 #include <algorithm>
 #include <vector>
-#include <ros/ros.h>
-#include <ros/package.h>
 #include <gtest/gtest.h>
 #include <cmath>
 
