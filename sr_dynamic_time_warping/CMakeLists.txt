@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(sr_dynamic_time_warping)
 
-find_package(catkin REQUIRED COMPONENTS
-  rostest
-)
+find_package(catkin REQUIRED COMPONENTS)
 
 ## System dependencies are found with CMake's conventions
 find_package(Eigen3 REQUIRED)
@@ -149,6 +147,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 ## Add gtest based cpp test target and link libraries
 if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
   catkin_add_gtest(dtw-test test/test_dtw.cpp)
   if(TARGET dtw-test)
      target_link_libraries(dtw-test dtw)
