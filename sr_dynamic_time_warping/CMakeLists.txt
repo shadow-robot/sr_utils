@@ -1,16 +1,10 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(sr_dynamic_time_warping)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
-find_package(cmake_modules  REQUIRED)
-find_package(catkin REQUIRED COMPONENTS
-  rostest
-)
+find_package(catkin REQUIRED COMPONENTS)
 
 ## System dependencies are found with CMake's conventions
-find_package(Eigen REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -90,7 +84,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(include)
-include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS})
+include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS})
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
@@ -153,6 +147,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 ## Add gtest based cpp test target and link libraries
 if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
   catkin_add_gtest(dtw-test test/test_dtw.cpp)
   if(TARGET dtw-test)
      target_link_libraries(dtw-test dtw)

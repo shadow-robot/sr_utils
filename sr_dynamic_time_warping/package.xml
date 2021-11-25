@@ -20,10 +20,10 @@
   <author email="yi@shadowrobot.com">Yi Li</author>
   <author email="ugo@shadowrobot.com">Ugo Cupcic</author>
 
-  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>cmake_modules</build_depend>
+  <build_depend>eigen</build_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
