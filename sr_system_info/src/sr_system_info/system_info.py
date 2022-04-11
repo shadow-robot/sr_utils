@@ -146,8 +146,10 @@ class SystemInfo:
                 if key != "groups" and key not in processed_keys:
                     self._values["dynamic_reconfigure"][server][key] = value
 
+
 def stdout(cmd):
     return subprocess.check_output(cmd, text=True).rstrip("\r\n")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Collect system and ROS package information.")
