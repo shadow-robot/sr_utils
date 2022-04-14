@@ -14,19 +14,16 @@
 # You should have received a copy of the GNU General Public License along
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import absolute_import
+import subprocess
 import argparse
 import dynamic_reconfigure
 import dynamic_reconfigure.client
 import psutil
-import rospy
 import rospkg
-import subprocess
 import yaml
-from builtins import round
 
 
-class SystemInfo(object):
+class SystemInfo:
 
     def __init__(self):
         self._rospack = rospkg.RosPack()
@@ -90,7 +87,7 @@ class SystemInfo(object):
                                                                                   text=True).replace("\n", "")
             git_diff_ignore = git_diff_ignore_lists["repos"].get(repo_name, "")
             self._values["src_repos"][repo_name]["diff"] = subprocess.check_output(
-                "git --no-pager -C {} diff -- {} {}".format(repo_path, repo_path, git_diff_ignore),
+                f"git --no-pager -C {repo_path} diff -- {repo_path} {git_diff_ignore}",
                 shell=True, text=True).replace("\n", "")
         for package_name in self._values["src_packages"]:
             src_repo_name = self._values["src_packages"][package_name]["repo_name"]
@@ -106,18 +103,15 @@ class SystemInfo(object):
 
     def survey_system(self):
         self._values["system"] = {"hardware":
-                                  {"cpu": self.stdout("lscpu"),
+                                  {"cpu": stdout("lscpu"),
                                    "ram": str(round(psutil.virtual_memory().total / (1024.0 ** 3)))+" GB"},
                                   "software":
                                   {"kernel":
-                                   {"release": self.stdout(["uname", "-r"]),
-                                    "version": self.stdout(["uname", "-v"])}}}
+                                   {"release": stdout(["uname", "-r"]),
+                                    "version": stdout(["uname", "-v"])}}}
 
     def yaml(self):
         return yaml.dump(self._values)
-
-    def stdout(self, cmd):
-        return subprocess.check_output(cmd, text=True).rstrip("\r\n")
 
     def survey_dynamic_configuration(self):
         self._values["dynamic_reconfigure"] = {}
@@ -142,14 +136,17 @@ class SystemInfo(object):
                         # Ignore non-parameter keys
                         if key in non_param_keys:
                             continue
-                        else:
-                            self._values["dynamic_reconfigure"][server][group][key] = \
-                                config["groups"]["groups"][group][key]
-                            processed_keys.append(key)
+                        self._values["dynamic_reconfigure"][server][group][key] = \
+                            config["groups"]["groups"][group][key]
+                        processed_keys.append(key)
             # Catch any non-grouped parameters in this node
-            for key in config.keys():
+            for key, value in config.items():
                 if key != "groups" and key not in processed_keys:
-                    self._values["dynamic_reconfigure"][server][key] = config[key]
+                    self._values["dynamic_reconfigure"][server][key] = value
+
+
+def stdout(cmd):
+    return subprocess.check_output(cmd, text=True).rstrip("\r\n")
 
 
 if __name__ == "__main__":
