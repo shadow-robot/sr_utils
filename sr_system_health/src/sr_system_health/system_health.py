@@ -21,11 +21,13 @@ import rospy
 from sr_system_health.msg import SystemHealth
 
 
-class SystemHealthCheck:
+class SystemHealthNode:
 
-    def __init__(self, sampling_period=1):
+    def __init__(self):
 
-        self._timer = rospy.Timer(rospy.Duration(sampling_period), self._timer_cb)
+        self._sampling_period = rospy.get_param("~sampling_period", 1)
+
+        self._timer = rospy.Timer(rospy.Duration(self._sampling_period), self._timer_cb)
         self._publisher = rospy.Publisher("/system_health", SystemHealth, queue_size=10)
 
     def _timer_cb(self, event):
@@ -43,6 +45,6 @@ class SystemHealthCheck:
 
 
 if __name__ == '__main__':
-    rospy.init_node("system_health_check")
-    system_health_check = SystemHealthCheck()
+    rospy.init_node("system_health_node")
+    system_health_check = SystemHealthNode()
     rospy.spin()
