@@ -23,11 +23,9 @@ from sr_system_health.msg import SystemHealth
 
 class SystemHealthCheck:
 
-    def __init__(self, frequency=1):
+    def __init__(self, sampling_period=1):
 
-        self._frequency = frequency
-        self._timer = rospy.Timer(rospy.Duration(self._frequency), self._timer_cb)
-
+        self._timer = rospy.Timer(rospy.Duration(sampling_period), self._timer_cb)
         self._publisher = rospy.Publisher("/system_health", SystemHealth, queue_size=10)
 
     def _timer_cb(self, event):
