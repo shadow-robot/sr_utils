@@ -1,4 +1,4 @@
-# sr_system_info
+# sr_system_health
 
 This package contains a node to monitor important variables of the system such as:
 * Overall CPU usage
