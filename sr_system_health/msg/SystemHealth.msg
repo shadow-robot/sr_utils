@@ -1,0 +1,7 @@
+time stamp
+
+float64 cpu_usage
+float64 cpu_frequency
+float64[] percpu_usage
+float64 ram_usage
+float64 disk_usage
