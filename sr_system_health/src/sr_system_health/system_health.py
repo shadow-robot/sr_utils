@@ -29,12 +29,12 @@ class SystemHealthCheck:
         self._publisher = rospy.Publisher("/system_health", SystemHealth, queue_size=10)
 
     def _timer_cb(self, event):
-        
+
         msg = SystemHealth()
 
         msg.stamp = rospy.Time().now()
         msg.cpu_usage = psutil.cpu_percent()
-        msg.cpu_frequency  = psutil.cpu_freq().current
+        msg.cpu_frequency = psutil.cpu_freq().current
         msg.percpu_usage = psutil.cpu_percent(percpu=True)
         msg.ram_usage = psutil.virtual_memory().percent
         msg.disk_usage = psutil.disk_usage('/').percent
