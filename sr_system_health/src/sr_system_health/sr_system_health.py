@@ -21,7 +21,7 @@ import rospy
 from sr_system_health.msg import SystemHealth
 
 
-class SystemHealthNode:
+class SystemHealthCheck:
 
     def __init__(self):
 
@@ -42,9 +42,3 @@ class SystemHealthNode:
         msg.disk_usage = psutil.disk_usage('/').percent
 
         self._publisher.publish(msg)
-
-
-if __name__ == '__main__':
-    rospy.init_node("system_health_node")
-    system_health_check = SystemHealthNode()
-    rospy.spin()

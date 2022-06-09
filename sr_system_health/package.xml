@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>sr_system_health</name>
-  <version>0.0.0</version>
+  <version>0.0.1</version>
   <description>The sr_system_health package</description>
   <maintainer email="software@shadowrobot.com">Shadow Robot's software team</maintainer>
   <author email="jesus@shadowrobot.com">Jesus Ferrandiz</author>
