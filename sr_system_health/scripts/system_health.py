@@ -42,3 +42,9 @@ class SystemHealthCheck:
         msg.disk_usage = psutil.disk_usage('/').percent
 
         self._publisher.publish(msg)
+
+
+if __name__ == "__main__":
+    rospy.init_node('system_health_node')
+    system_health_check = SystemHealthCheck()
+    rospy.spin()
