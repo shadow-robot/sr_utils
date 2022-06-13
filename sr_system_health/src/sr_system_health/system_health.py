@@ -36,8 +36,15 @@ class SystemHealthCheck:
 
         msg.stamp = rospy.Time().now()
         msg.cpu_usage = psutil.cpu_percent()
-        msg.cpu_frequency = psutil.cpu_freq().current
         msg.percpu_usage = psutil.cpu_percent(percpu=True)
+
+        msg.cpu_frequency = psutil.cpu_freq().current
+
+        cpu_frequencies = psutil.cpu_freq(percpu=True)
+        cpu_freq_list = []
+        for cpu_freq in cpu_frequencies:
+            cpu_freq_list.append(cpu_freq.current)
+        msg.percpu_frequency = cpu_freq_list
         
         core_temps = psutil.sensors_temperatures()["coretemp"]
         core_temp_list = []
