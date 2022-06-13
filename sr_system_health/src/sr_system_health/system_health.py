@@ -38,6 +38,13 @@ class SystemHealthCheck:
         msg.cpu_usage = psutil.cpu_percent()
         msg.cpu_frequency = psutil.cpu_freq().current
         msg.percpu_usage = psutil.cpu_percent(percpu=True)
+        
+        core_temps = psutil.sensors_temperatures()["coretemp"]
+        core_temp_list = []
+        for core_temp in core_temps:
+            core_temp_list.append(core_temp.current)
+        msg.percore_temp = core_temp_list
+
         msg.ram_usage = psutil.virtual_memory().percent
         msg.disk_usage = psutil.disk_usage('/').percent
 
