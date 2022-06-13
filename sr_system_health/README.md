@@ -2,8 +2,10 @@
 
 This package contains a node to monitor important variables of the system such as:
 * Overall CPU usage
+* Usage of every CPU
 * CPU frequency
-* CPU usage per core
+* Frequency of every CPU
+* Temperature of every core
 * RAM usage
 * Disk usage (partition)
 
