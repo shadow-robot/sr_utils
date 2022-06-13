@@ -45,7 +45,7 @@ class SystemHealthCheck:
         for cpu_freq in cpu_frequencies:
             cpu_freq_list.append(cpu_freq.current)
         msg.percpu_frequency = cpu_freq_list
-        
+
         core_temps = psutil.sensors_temperatures()["coretemp"]
         core_temp_list = []
         for core_temp in core_temps:
