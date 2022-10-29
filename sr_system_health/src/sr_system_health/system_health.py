@@ -45,12 +45,13 @@ class SystemHealthCheck:
         for cpu_freq in cpu_frequencies:
             cpu_freq_list.append(cpu_freq.current)
         msg.percpu_frequency = cpu_freq_list
-
-        core_temps = psutil.sensors_temperatures()["coretemp"]
-        core_temp_list = []
-        for core_temp in core_temps:
-            core_temp_list.append(core_temp.current)
-        msg.percore_temp = core_temp_list
+        temp_sensors = psutil.sensors_temperatures()
+        if "coretemp" in temp_sensors:
+            core_temps = temp_sensors["coretemp"]
+            core_temp_list = []
+            for core_temp in core_temps:
+                core_temp_list.append(core_temp.current)
+            msg.percore_temp = core_temp_list
 
         msg.ram_usage = psutil.virtual_memory().percent
         msg.disk_usage = psutil.disk_usage('/').percent
